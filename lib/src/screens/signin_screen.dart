@@ -1,7 +1,6 @@
 import 'package:chat_app/src/screens/signup_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../components/continue_button.dart';
 import '../components/textfield.dart';

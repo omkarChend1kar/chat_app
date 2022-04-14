@@ -1,6 +1,5 @@
 import 'package:chat_app/src/screens/signin_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../components/additional_signin_provider.dart';
 import '../components/continue_button.dart';
@@ -15,6 +14,7 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
+  AuthClass authclass = AuthClass();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +46,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
               ),
               const NumberField(),
-              ContinueButton(autheticate: () {},),
+              ContinueButton(
+                autheticate: () {},
+              ),
               const Text(
                 'or signin with',
                 style: TextStyle(
@@ -54,17 +56,24 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   fontSize: 15,
                 ),
               ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: const [
-                    AdditionalSigninProvider(assetName: 'assets/images/google.svg',),
-                    AdditionalSigninProvider(assetName: 'assets/images/facebook.svg'),
-                    AdditionalSigninProvider(assetName: 'assets/images/twitter.svg'),
-                  ],
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  AdditionalSigninProvider(
+                    assetName: 'assets/images/google.svg',
+                    signin: () async {
+                      await authclass.googleSignIn(context);
+                    },
+                  ),
+                  AdditionalSigninProvider(
+                    assetName: 'assets/images/facebook.svg',
+                    signin: () {},
+                  ),
+                  AdditionalSigninProvider(
+                    assetName: 'assets/images/twitter.svg',
+                    signin: () {},
+                  ),
+                ],
               ),
               Padding(
                 padding:
@@ -94,4 +103,3 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     );
   }
 }
-
