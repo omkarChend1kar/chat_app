@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "907417748395",
+    "project_id": "chatapp-eadc9",
+    "storage_bucket": "chatapp-eadc9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907417748395:android:fbfa5dcc301925efec48ee",
+        "android_client_info": {
+          "package_name": "com.omkarChend1kar.chat_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "907417748395-s4nagtvr7t74lesm475mge4dfvahrhhg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAscrWcHBESnvVbTMeMBrg7-h38OJ44w8c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "907417748395-s4nagtvr7t74lesm475mge4dfvahrhhg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
