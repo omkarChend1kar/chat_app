@@ -1,7 +1,9 @@
-import 'package:chat_app/src/screens/login_screen.dart';
-import 'package:chat_app/src/screens/register_screen.dart';
-import 'package:chat_app/src/screens/login_screen.dart';
+import 'package:chat_app/src/screens/welcome_screen.dart';
+import 'package:chat_app/src/screens/signin_screen.dart';
+import 'package:chat_app/src/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
+
+import 'screens/chat_screen.dart';
 
 class chatApp extends StatelessWidget {
   const chatApp({ Key? key }) : super(key: key);
@@ -17,10 +19,12 @@ class chatApp extends StatelessWidget {
         )
       ),
       // home:LoginScreen(),
-      initialRoute: LoginScreen.id,
+      initialRoute: WelcomeScreen.id,
       routes: {
-        LoginScreen.id:(context) => const LoginScreen(),
-        RegisterScreen.id:(context) => const RegisterScreen(),
+        WelcomeScreen.id:(context) => const WelcomeScreen(),
+        SigninScreen.id:(context) => const SigninScreen(),
+        SignupScreen.id:(context) => const SignupScreen(),
+        ChatScreen.id:(context) => const ChatScreen(),
       },
     );
   }
