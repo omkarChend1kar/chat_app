@@ -1,19 +1,22 @@
 import 'package:chat_app/src/screens/signin_screen.dart';
+import 'package:chat_app/src/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../components/additional_signin_provider.dart';
 import '../components/continue_button.dart';
 import '../components/number_field.dart';
+import '../services/authenticator.dart';
 
-class WelcomeScreen extends StatefulWidget {
+class WelcomeScreen extends StatelessWidget {
+  // final Function() signIn;
   static const id = 'welcome_screen';
-  const WelcomeScreen({Key? key}) : super(key: key);
+  bool gotoSignin = false;
+  bool gotoSignup = false;
+  WelcomeScreen({
+    Key? key,
+    // required this.signIn,
+  }) : super(key: key);
 
-  @override
-  State<WelcomeScreen> createState() => _WelcomeScreenState();
-}
-
-class _WelcomeScreenState extends State<WelcomeScreen> {
   AuthClass authclass = AuthClass();
   @override
   Widget build(BuildContext context) {
@@ -49,31 +52,37 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               ContinueButton(
                 autheticate: () {},
               ),
-              const Text(
-                'or signin with',
-                style: TextStyle(
-                  color: Colors.black38,
-                  fontSize: 15,
+              const Padding(
+                padding: EdgeInsets.all(5.0),
+                child: Text(
+                  'or signin with',
+                  style: TextStyle(
+                    color: Colors.black38,
+                    fontSize: 15,
+                  ),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  AdditionalSigninProvider(
-                    assetName: 'assets/images/google.svg',
-                    signin: () async {
-                      await authclass.googleSignIn(context);
-                    },
-                  ),
-                  AdditionalSigninProvider(
-                    assetName: 'assets/images/facebook.svg',
-                    signin: () {},
-                  ),
-                  AdditionalSigninProvider(
-                    assetName: 'assets/images/twitter.svg',
-                    signin: () {},
-                  ),
-                ],
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    AdditionalSigninProvider(
+                      assetName: 'assets/images/google.svg',
+                      signin: () async {
+                        await authclass.googleSignIn(context);
+                      },
+                    ),
+                    AdditionalSigninProvider(
+                      assetName: 'assets/images/facebook.svg',
+                      signin: () {},
+                    ),
+                    AdditionalSigninProvider(
+                      assetName: 'assets/images/twitter.svg',
+                      signin: () {},
+                    ),
+                  ],
+                ),
               ),
               Padding(
                 padding:
